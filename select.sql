@@ -325,3 +325,21 @@ SELECT * FROM students WHERE dob BETWEEN '2000-01-01' AND '2005-01-01' ORDER BY 
 SELECT * FROM students WHERE first_name LIKE '%am';
 SELECT * FROM students WHERE first_name LIKE '__a%';
 SELECT * FROM students WHERE first_name ILIKE 'a%';
+
+-- limit Offset
+SELECT * FROM students LIMIT 5;
+SELECT * FROM students LIMIT 5 OFFSET 4
+
+SELECT * FROM students WHERE country  IN('USA', 'UK', 'Canada') LIMIT 3;
+
+-- pegination
+SELECT * FROM students LIMIT 5 OFFSET 5 * 0; --for first page in front-end;
+SELECT * FROM students LIMIT 5 OFFSET 5 * 1; --for 2nd page in front-end;
+SELECT * FROM students LIMIT 5 OFFSET 5 * 2; --for 3rd page in front-end;
+
+-- delete data from a table
+DELETE FROM students WHERE grade = 'C'
+
+DELETE FROM students WHERE grade = 'B' AND country = 'USA';
+
+SELECT * FROM students WHERE country = 'USA';
