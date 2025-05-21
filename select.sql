@@ -303,4 +303,25 @@ SELECT * FROM students WHERE email IS NOT NULL;
 -- coalesce function
 SELECT COALESCE(NULL, 5);
 
-SELECT COALESCE(email, 'Email Not found') FROM students
+SELECT COALESCE(email, 'Email Not found') FROM students;
+
+-- find student from usa, uk, or canada
+
+SELECT * FROM students WHERE country='USA' OR country='UK' OR country='Canada';
+
+-- use in keywords
+SELECT * FROM students WHERE country  IN('USA', 'UK', 'Canada');
+SELECT * FROM students WHERE country NOT IN('USA', 'UK', 'Canada');
+
+
+SELECT * FROM students;
+
+-- in specific range use between
+
+SELECT * FROM students WHERE age BETWEEN 19 AND 22 ORDER BY age ASC;
+SELECT * FROM students WHERE dob BETWEEN '2000-01-01' AND '2005-01-01' ORDER BY dob;
+
+-- like operator
+SELECT * FROM students WHERE first_name LIKE '%am';
+SELECT * FROM students WHERE first_name LIKE '__a%';
+SELECT * FROM students WHERE first_name ILIKE 'a%';
