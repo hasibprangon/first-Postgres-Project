@@ -245,6 +245,7 @@ VALUES (
         'New Zealand'
     );
 
+SELECT * FROM students;
 -- find student according to age in descending order
 SELECT * from students ORDER BY age DESC;
 
@@ -342,4 +343,8 @@ DELETE FROM students WHERE grade = 'C'
 
 DELETE FROM students WHERE grade = 'B' AND country = 'USA';
 
-SELECT * FROM students WHERE country = 'USA';
+DELETE FROM students;
+
+SELECT * FROM students;
+-- update a row
+UPDATE students SET email = 'person@gmail.com', age=50 WHERE student_id = 65; 
