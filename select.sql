@@ -275,3 +275,22 @@ SELECT * FROM students WHERE (course = 'Math' OR course =' Physics') AND (grade 
 
 -- select student older than 20
 SELECT * FROM students WHERE age <= 20 ;
+
+-- first name in capital letter
+SELECT  upper(first_name) as first_name_in_uppercase, * FROM students;
+
+-- scalar function
+
+-- concat anything
+SELECT concat(first_name,' ', last_name) FROM students;
+
+SELECT length(first_name) from students;
+
+
+-- aggregate function
+
+SELECT avg(age) FROM students;
+
+SELECT count(*) FROM students
+
+SELECT max(length(first_name)) FROM students
