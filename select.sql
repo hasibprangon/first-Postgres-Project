@@ -269,24 +269,39 @@ SELECT * FROM students WHERE blood_group = 'A+'
 SELECT * FROM students WHERE country = 'USA' OR country = 'Australia'
 
 -- select student from the USA or from Australia and the age is 20
-SELECT * FROM students WHERE (country = 'USA' OR country = 'Australia') AND age = 20
+SELECT *
+FROM students
+WHERE (
+        country = 'USA'
+        OR country = 'Australia'
+    )
+    AND age = 20
 
 -- select student with a grade 'A' or 'B' in math or physics
-SELECT * FROM students WHERE (course = 'Math' OR course =' Physics') AND (grade = 'A' OR grade = 'B')
+SELECT *
+FROM students
+WHERE (
+        course = 'Math'
+        OR course = ' Physics'
+    )
+    AND (
+        grade = 'A'
+        OR grade = 'B'
+    )
 
 -- select student older than 20
-SELECT * FROM students WHERE age <= 20 ;
+SELECT * FROM students WHERE age <= 20;
 
 -- first name in capital letter
-SELECT  upper(first_name) as first_name_in_uppercase, * FROM students;
+SELECT upper(first_name) as first_name_in_uppercase, *
+FROM students;
 
 -- scalar function
 
 -- concat anything
-SELECT concat(first_name,' ', last_name) FROM students;
+SELECT concat(first_name, ' ', last_name) FROM students;
 
 SELECT length(first_name) from students;
-
 
 -- aggregate function
 
@@ -308,35 +323,55 @@ SELECT COALESCE(email, 'Email Not found') FROM students;
 
 -- find student from usa, uk, or canada
 
-SELECT * FROM students WHERE country='USA' OR country='UK' OR country='Canada';
+SELECT *
+FROM students
+WHERE
+    country = 'USA'
+    OR country = 'UK'
+    OR country = 'Canada';
 
 -- use in keywords
-SELECT * FROM students WHERE country  IN('USA', 'UK', 'Canada');
-SELECT * FROM students WHERE country NOT IN('USA', 'UK', 'Canada');
+SELECT * FROM students WHERE country IN ('USA', 'UK', 'Canada');
 
+SELECT * FROM students WHERE country NOT IN ('USA', 'UK', 'Canada');
 
 SELECT * FROM students;
 
 -- in specific range use between
 
 SELECT * FROM students WHERE age BETWEEN 19 AND 22 ORDER BY age ASC;
-SELECT * FROM students WHERE dob BETWEEN '2000-01-01' AND '2005-01-01' ORDER BY dob;
+
+SELECT *
+FROM students
+WHERE
+    dob BETWEEN '2000-01-01' AND '2005-01-01'
+ORDER BY dob;
 
 -- like operator
 SELECT * FROM students WHERE first_name LIKE '%am';
+
 SELECT * FROM students WHERE first_name LIKE '__a%';
+
 SELECT * FROM students WHERE first_name ILIKE 'a%';
 
 -- limit Offset
 SELECT * FROM students LIMIT 5;
+
 SELECT * FROM students LIMIT 5 OFFSET 4
 
-SELECT * FROM students WHERE country  IN('USA', 'UK', 'Canada') LIMIT 3;
+SELECT *
+FROM students
+WHERE
+    country IN ('USA', 'UK', 'Canada')
+LIMIT 3;
 
 -- pegination
-SELECT * FROM students LIMIT 5 OFFSET 5 * 0; --for first page in front-end;
-SELECT * FROM students LIMIT 5 OFFSET 5 * 1; --for 2nd page in front-end;
-SELECT * FROM students LIMIT 5 OFFSET 5 * 2; --for 3rd page in front-end;
+SELECT * FROM students LIMIT 5 OFFSET 5 * 0;
+--for first page in front-end;
+SELECT * FROM students LIMIT 5 OFFSET 5 * 1;
+--for 2nd page in front-end;
+SELECT * FROM students LIMIT 5 OFFSET 5 * 2;
+--for 3rd page in front-end;
 
 -- delete data from a table
 DELETE FROM students WHERE grade = 'C'
@@ -347,4 +382,9 @@ DELETE FROM students;
 
 SELECT * FROM students;
 -- update a row
-UPDATE students SET email = 'person@gmail.com', age=50 WHERE student_id = 65; 
+UPDATE students
+SET
+    email = 'person@gmail.com',
+    age = 50
+WHERE
+    student_id = 65;
