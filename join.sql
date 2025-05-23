@@ -47,3 +47,9 @@ DROP TABLE "user";
 SELECT title, username
 FROM post
     JOIN "user" ON post.user_id = "user".id;
+
+INSERT INTO post (id, title, user_id) VALUES ( 5 ,'This is a test post title', NULL );
+
+SELECT * FROM post as p JOIN "user" as u ON p.user_id = u.id;
+SELECT * FROM post as p LEFT JOIN "user" as u ON p.user_id = u.id;
+SELECT * FROM post as p RIGHT JOIN "user" as u ON p.user_id = u.id;
