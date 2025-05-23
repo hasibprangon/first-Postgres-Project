@@ -53,3 +53,4 @@ INSERT INTO post (id, title, user_id) VALUES ( 5 ,'This is a test post title', N
 SELECT * FROM post as p JOIN "user" as u ON p.user_id = u.id;
 SELECT * FROM post as p LEFT JOIN "user" as u ON p.user_id = u.id;
 SELECT * FROM post as p RIGHT JOIN "user" as u ON p.user_id = u.id;
+SELECT * FROM post as p FULL JOIN "user" as u ON p.user_id = u.id;
